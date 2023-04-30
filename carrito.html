@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEW | LA ORDEN</title>
+    <!-- FAVICON -->
+    <!-- CDN ANIMATE CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&display=swap" rel="stylesheet">
+    <!-- FONT AWSOME -->
+    <script src="https://kit.fontawesome.com/ab98761498.js" crossorigin="anonymous"></script>
+    <!-- ESTILO CSS -->
+    <link rel="stylesheet" href="./css/estilo.css">
+</head>
+
+<body>
+
+
+    <div class="contenedor">
+
+        <aside>
+            <header>
+                <h1 class="logo">LA ORDEN DEL<br>NUEVO MUNDO</h1>
+            </header>
+
+            <nav>
+                <ul>
+                    <li><a class="boton_menu boton_volver" href="./index.html">SEGUIR COMPRANDO</a></li>
+                    <li><a class="boton_menu boton_carrito active" href="./carrito.html"><i
+                                class="fa-solid fa-bag-shopping"></i></a></li>
+                </ul>
+            </nav>
+
+            <footer class="footer">
+                <div class="footer_inicio">
+                    <div>
+                        <ul class="redes">
+                            <li><a class="ins" href="https://www.instagram.com/laordendelnuevomundo/"
+                                    target="_blank">INSTAGRAM</a></li>
+                            <li><a href="https://www.pinterest.es/laorden1/" target="_blank">PINTEREST</a></li>
+                        </ul>
+                    </div>
+                    <div class="web">
+                        <p>WEB Laorden. 2023. &copy;</p>
+                    </div>
+                </div>
+            </footer>
+        </aside>
+
+        <main>
+
+            <h2 class="titulo_principal">CESTA</h2>
+            <div class="contenedor_carrito">
+                <p id="carrito_vacio" class="carrito_vacio">TU CESTA ESTÁ VACÍA.</p>
+                <div id="carrito_productos" class="carrito_productos oculto">
+                    <!-- SE COMPLETA CON JS -->
+                </div>
+                <div id="carrito_acciones" class="carrito_acciones oculto">
+                    <div class="carrito_izq">
+                        <button id="carrito_vaciar" class="carrito_vaciar">VACIAR CARRITO</button>
+                    </div>
+                    <div class="carrito_der">
+                        <div class="carrito_total">
+                            <p>TOTAL </p>
+                            <p id="total"> ARS</p>
+                        </div>
+                        <button id="carrito_comprar" class="carrito_comprar">CONTINUAR</button>
+                    </div>
+                </div>
+
+                <p id="carrito_comprado" class="carrito_vacio">MUCHAS GRACIAS POR TU COMPRA.</p>
+
+            </div>
+        </main>
+    </div>
+
+
+    <script src="./data/stock.js"></script>
+    <script src="./js/carrito_pagina.js"></script>
+</body>
+
+</html>

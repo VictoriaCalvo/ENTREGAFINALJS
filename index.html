@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEW | LA ORDEN</title>
+    <!-- FAVICON -->
+    <!-- CDN ANIMATE CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&display=swap" rel="stylesheet">
+    <!-- FONT AWSOME -->
+    <script src="https://kit.fontawesome.com/ab98761498.js" crossorigin="anonymous"></script>
+    <!-- ESTILO CSS -->
+    <link rel="stylesheet" href="./css/estilo.css">
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <aside>
+            <header>
+                <h1 class="logo">LA ORDEN DEL<br>NUEVO MUNDO</h1>
+            </header>
+
+            <nav>
+                <ul class="menu">
+                    <li><button id="todos" class="boton_menu boton_categoria active">TODOS LOS PRODUCTOS</button></li>
+                    <li><button id="remerones" class="boton_menu boton_categoria">REMERONES</button></li>
+                    <li><button id="vestidos" class="boton_menu boton_categoria">VESTIDOS</button></li>
+                    <li><button id="conjuntos" class="boton_menu boton_categoria">CONJUNTOS</button></li>
+                    <li><a class="boton_menu boton_carrito" href="./carrito.html"><i
+                                class="fa-solid fa-bag-shopping"></i><span id="numerito" class="numerito"> 0</span></a></li>
+                </ul>
+            </nav>
+
+            <footer class="footer">
+                <div class="footer_inicio">
+                    <div>
+                        <ul class="redes">
+                            <li><a class="ins" href="https://www.instagram.com/laordendelnuevomundo/"
+                                    target="_blank">INSTAGRAM</a></li>
+                            <li><a href="https://www.pinterest.es/laorden1/" target="_blank">PINTEREST</a></li>
+                        </ul>
+                    </div>
+                    <div class="web">
+                        <p>WEB Laorden. 2023. &copy;</p>
+                    </div>
+                </div>
+            </footer>
+        </aside>
+
+        <main>
+
+            <h2 id="titulo_principal" class="titulo_principal">TODOS LOS PRODUCTOS</h2>
+            <div id="contenedor_productos" class="contenedor_productos">
+                <!-- SE COMPLETA CON JS -->
+            </div>
+        </main>
+    </div>
+
+    <script src="./data/stock.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
+
