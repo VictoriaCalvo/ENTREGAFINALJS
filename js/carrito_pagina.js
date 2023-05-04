@@ -12,10 +12,15 @@ const botonComprar = document.getElementById('carrito_comprar')
 
 
 const eliminarDelCarrito = (e) => {
-    const idBoton = e.currentTarget.id
+    const idBoton = e.target.id
     const index = carrito.findIndex(producto => producto.id === idBoton)
-    carrito.splice (index, 1)
-    
+
+    if (carrito[index].cantidad > 1) {
+        carrito[index].cantidad--
+    } else {
+        carrito.splice(index, 1)
+    }
+
     cargarProductosCarrito()
 
     localStorage.setItem('productos_en_carrito', JSON.stringify(carrito))
@@ -30,7 +35,7 @@ const actualizarBotonEliminar = () => {
 }
 
 const actualizarTotal = () => {
-    const totalCalculado = carrito.reduce ((acc, producto) => acc + (producto.precio * producto.cantidad), 0)
+    const totalCalculado = carrito.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0)
     total.innerText = `${totalCalculado}`
 }
 
@@ -55,7 +60,7 @@ const cargarProductosCarrito = () => {
             <p>${producto.nombre}</p>
         </div>
         <div class="carrito_producto_cantidad">
-            <p id=cantidad${producto.catidad}>${producto.cantidad}</p>
+            <p id=cantidad${producto.id}>${producto.cantidad}</p>
         </div>
         <div class="carrito_producto_precio">
             <p>${producto.precio} ARS</p>
@@ -64,13 +69,14 @@ const cargarProductosCarrito = () => {
         <button class="carrito_mas_menos" value="${producto.id}">
         <i id="${producto.id}" class="fa-solid fa-minus"></i>
             </button>
+        </div>
             `
 
             carritoProductos.append(div)
         })
 
         actualizarBotonEliminar()
-        actualizarTotal ()
+        actualizarTotal()
 
     } else {
         carritoVacio.classList.remove('oculto')
@@ -83,8 +89,9 @@ const cargarProductosCarrito = () => {
 
 cargarProductosCarrito()
 
+
 const vaciarCarrito = () => {
-    
+
     carrito.length = 0
     localStorage.setItem('productos_en_carrito', JSON.stringify(carrito))
     cargarProductosCarrito()
@@ -92,7 +99,7 @@ const vaciarCarrito = () => {
 botonVaciar.addEventListener('click', vaciarCarrito)
 
 const comprarCarrito = () => {
-    
+
     carrito.length = 0
     localStorage.setItem('productos_en_carrito', JSON.stringify(carrito))
 
@@ -100,6 +107,6 @@ const comprarCarrito = () => {
     carritoProductos.classList.add('oculto')
     carritoAcciones.classList.add('oculto')
     carritoComprado.classList.remove('oculto')
-    
+
 }
 botonComprar.addEventListener('click', comprarCarrito)

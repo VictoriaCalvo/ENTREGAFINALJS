@@ -1,8 +1,18 @@
+let productos = []
+
+fetch ('./data/stock.json')
+    .then (response => response.json())
+    .then (data => {
+        productos = data
+        cargarProductos(productos)
+    })
+
 const contenedorProductos = document.querySelector('#contenedor_productos')
 const botonesCategorias = document.querySelectorAll('.boton_categoria')
 const tituloPrincipal = document.getElementById ('titulo_principal')
 let botonAgregar = document.querySelectorAll('.producto_agregar')
 const numerito = document.getElementById('numerito')
+
 let carrito = []
 
 
@@ -48,7 +58,7 @@ const actualizarBotonAgregar = () => {
     })
 }
 
-const cargarProductos = (productosElegidos) => {
+const cargarProductos =  (productosElegidos) => {
 
     contenedorProductos.innerHTML = ''
 
@@ -71,9 +81,6 @@ const cargarProductos = (productosElegidos) => {
 
     actualizarBotonAgregar ()
 }
-
-cargarProductos(productos)
-
 
 botonesCategorias.forEach(boton => {
     boton.addEventListener('click', (e) => {
