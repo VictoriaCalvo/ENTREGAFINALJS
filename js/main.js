@@ -52,7 +52,7 @@ const agregarAlCarrito = (e) => {
             x: '1rem',
             y: '1rem'
         },
-        onClick: function () { } // Callback after click
+        onClick: function () { } 
     }).showToast();
 
     const idBoton = e.currentTarget.id
@@ -102,12 +102,6 @@ const cargarProductos = (productosElegidos) => {
 
     actualizarBotonAgregar()
 }
-
-pedirProductos ()
-    .then((res) => {
-        productos = res 
-        console.log (productos)
-    }) 
 
 botonesCategorias.forEach(boton => {
     boton.addEventListener('click', (e) => {
