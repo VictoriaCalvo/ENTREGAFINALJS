@@ -12,6 +12,27 @@ const botonComprar = document.getElementById('carrito_comprar')
 
 
 const eliminarDelCarrito = (e) => {
+
+    Toastify({
+        text: "producto eliminado",
+        duration: 1000,
+        close: false,
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+            background: "black",
+            textTransform: 'uppercase',
+            fontSize: '.75rem'
+        },
+
+        offset: {
+            x: '1rem',
+            y: '1rem'
+        },
+        onClick: function () { }
+    }).showToast();
+
     const idBoton = e.target.id
     const index = carrito.findIndex(producto => producto.id === idBoton)
 
@@ -92,9 +113,24 @@ cargarProductosCarrito()
 
 const vaciarCarrito = () => {
 
-    carrito.length = 0
-    localStorage.setItem('productos_en_carrito', JSON.stringify(carrito))
-    cargarProductosCarrito()
+    Swal.fire({
+        title: '¿Estás segurx?',
+        text: `Se van a borrar ${carrito.reduce ((acc, producto) => acc + producto.cantidad, 0)} productos.`,
+        icon: 'question',
+        showCancelButton: true,
+        focusConfirm: false,
+        confirmButtonText: 'Si',
+        cancelButtonText: 'No',
+        background: 'black',
+        color: 'white',
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+            carrito.length = 0
+            localStorage.setItem('productos_en_carrito', JSON.stringify(carrito))
+            cargarProductosCarrito()
+        }
+    })
 }
 botonVaciar.addEventListener('click', vaciarCarrito)
 
