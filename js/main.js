@@ -7,6 +7,7 @@ fetch('./data/stock.json')
         cargarProductos(productos)
     })
 
+
 const contenedorProductos = document.querySelector('#contenedor_productos')
 const botonesCategorias = document.querySelectorAll('.boton_categoria')
 const tituloPrincipal = document.getElementById('titulo_principal')
@@ -39,18 +40,18 @@ const agregarAlCarrito = (e) => {
         duration: 1000,
         close: false,
         gravity: "top",
-        position: "right", 
-        stopOnFocus: true, 
+        position: "right",
+        stopOnFocus: true,
         style: {
             background: "black",
             textTransform: 'uppercase',
             fontSize: '.75rem'
         },
 
-        offset : {
+        offset: {
             x: '1rem',
             y: '1rem'
-        }, 
+        },
         onClick: function () { } // Callback after click
     }).showToast();
 
@@ -102,6 +103,12 @@ const cargarProductos = (productosElegidos) => {
     actualizarBotonAgregar()
 }
 
+pedirProductos ()
+    .then((res) => {
+        productos = res 
+        console.log (productos)
+    }) 
+
 botonesCategorias.forEach(boton => {
     boton.addEventListener('click', (e) => {
 
@@ -123,5 +130,4 @@ botonesCategorias.forEach(boton => {
     })
 
 })
-
 
